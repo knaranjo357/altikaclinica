@@ -394,66 +394,7 @@ export const CumpleanosTab: React.FC = () => {
             </div>
           </div>
         </div>
-      )}
-
-      {/* All Birthdays */}
-      <div className="bg-white rounded-2xl shadow-lg border border-black/10">
-        <div className="p-4 sm:p-6">
-          <h2 className="text-lg sm:text-xl font-semibold text-black mb-4 sm:mb-6 flex items-center">
-            <Calendar className="w-5 h-5 sm:w-6 sm:h-6 mr-3 text-black" />
-            Todos los Cumpleaños ({filteredCumpleanos.length})
-          </h2>
-
-          {filteredCumpleanos.length === 0 ? (
-            <div className="text-center py-16">
-              <Gift className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-              <p className="text-gray-800 text-lg mb-2">No se encontraron cumpleaños</p>
-              <p className="text-gray-600">Intenta ajustar los filtros para ver más resultados</p>
-            </div>
-          ) : (
-            <div className="grid gap-3 sm:gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-              {filteredCumpleanos.map((cumple) => (
-                <div
-                  key={cumple.fila_original_excel}
-                  className={`border rounded-xl p-4 hover:shadow-lg transition-all duration-200 ${
-                    isCurrentMonth(cumple.Mes)
-                      ? 'border-black/20 bg-black/[0.03] shadow-md'
-                      : 'border-black/10 hover:border-black/20'
-                  }`}
-                >
-                  <div className="space-y-3">
-                    <div className="flex items-start justify-between">
-                      <h4 className="font-semibold text-black text-sm flex items-center truncate">
-                        {isCurrentMonth(cumple.Mes) && '🎂 '}
-                        {cumple.Paciente}
-                      </h4>
-                      {cumple.Celular_valido === 'VERDADERO' && (
-                        <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" />
-                      )}
-                    </div>
-
-                    <div className="text-xs text-gray-700 space-y-1">
-                      <div className="flex items-center">
-                        <Calendar className="w-3 h-3 mr-1 text-black" />
-                        {cumple.Cumple}
-                      </div>
-                      <div className="flex items-center">
-                        <User className="w-3 h-3 mr-1 text-black" />
-                        {cumple.Genero}
-                      </div>
-                      {isCurrentMonth(cumple.Mes) && (
-                        <div className="text-black font-semibold">
-                          ✨ ¡Este mes!
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-      </div>
+      )}      
     </div>
   );
 };
