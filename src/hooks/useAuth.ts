@@ -1,36 +1,55 @@
 import { useState, useEffect } from 'react';
 import { User } from '../types';
-
-const ADMIN_CREDENTIALS = {
-  email: 'admin@altika.com',
-  password: 'xactus'
-};
+import { apiService, getAuthToken, clearAuthToken } from '../services/api';
 
 export const useAuth = () => {
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const storedUser = localStorage.getItem('altika_user');
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
+    const token = getAuthToken();
+    if (token) {
+      // Decode JWT to get user info (basic decode, in production use a proper JWT library)
+      try {
+        const payload = JSON.parse(atob(token.split('.')[1]));
+        const userData = { 
+          email: payload.email || 'Usuario', 
+          name: payload.name || 'Usuario Altika' 
+        };
+        setUser(userData);
+      } catch (error) {
+        console.error('Error decoding token:', error);
+        clearAuthToken();
+      }
     }
     setIsLoading(false);
   }, []);
 
-  const login = (email: string, password: string): boolean => {
-    if (email === ADMIN_CREDENTIALS.email && password === ADMIN_CREDENTIALS.password) {
-      const userData = { email, name: 'Administrador Altika' };
-      setUser(userData);
-      localStorage.setItem('altika_user', JSON.stringify(userData));
-      return true;
+  const login = async (email: string, password: string): Promise<boolean> => {
+    try {
+      await apiService.login(email, password);
+      
+      // Decode token to get user info
+      const token = getAuthToken();
+      if (token) {
+        const payload = JSON.parse(atob(token.split('.')[1]));
+        const userData = { 
+          email: payload.email || email, 
+          name: payload.name || 'Usuario Altika' 
+        };
+        setUser(userData);
+        return true;
+      }
+      return false;
+    } catch (error) {
+      console.error('Login failed:', error);
+      return false;
     }
-    return false;
   };
 
   const logout = () => {
     setUser(null);
-    localStorage.removeItem('altika_user');
+    clearAuthToken();
   };
 
   return { user, login, logout, isLoading };
