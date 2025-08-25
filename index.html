@@ -1,12 +1,107 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Altika Studio Dental - Sistema de Gestión de Citas y Cumpleaños</title>
+
+    <!-- Viewport para iOS notch + mejor rendering -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+
+    <title>Altika Studio Dental — Sistema de Gestión</title>
+    <meta
+      name="description"
+      content="Panel de Altika Studio Dental para gestionar citas y cumpleaños de pacientes. Rápido, claro y con identidad en blanco/negro."
+    />
+
+    <!-- Marca / Favicon / Apple icons -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="https://altikastudiodental.com/wp-content/uploads/2025/06/Recurso-18@300x.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="https://altikastudiodental.com/wp-content/uploads/2025/06/Recurso-18@300x.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="https://altikastudiodental.com/wp-content/uploads/2025/06/Recurso-18@300x.png"
+    />
+    <!-- Si más adelante tienes un icono en SVG para pestaña fijada de Safari:
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000" />
+    -->
+
+    <!-- Tema negro (coherente con identidad). Si quieres variar por esquema, duplica con media queries -->
+    <meta name="theme-color" content="#000000" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Altika Studio Dental" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <!-- SEO / Social -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Altika Studio Dental" />
+    <meta property="og:title" content="Altika Studio Dental — Sistema de Gestión" />
+    <meta
+      property="og:description"
+      content="Gestiona citas y cumpleaños de pacientes con un panel rápido y claro."
+    />
+    <meta
+      property="og:image"
+      content="https://altikastudiodental.com/wp-content/uploads/2025/06/Recurso-18@300x.png"
+    />
+    <meta property="og:image:alt" content="Logotipo de Altika Studio Dental" />
+    <meta property="og:locale" content="es_CO" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Altika Studio Dental — Sistema de Gestión" />
+    <meta
+      name="twitter:description"
+      content="Gestiona citas y cumpleaños de pacientes con un panel rápido y claro."
+    />
+    <meta
+      name="twitter:image"
+      content="https://altikastudiodental.com/wp-content/uploads/2025/06/Recurso-18@300x.png"
+    />
+
+    <!-- Estructurados (Organization) -->
+    <script type="application/ld+json">
+      {
+        "@context":"https://schema.org",
+        "@type":"Organization",
+        "name":"Altika Studio Dental",
+        "url":"https://altikastudiodental.com/",
+        "logo":"https://altikastudiodental.com/wp-content/uploads/2025/06/Recurso-18@300x.png"
+      }
+    </script>
+
+    <!-- Preload / performance (logo) -->
+    <link
+      rel="preconnect"
+      href="https://altikastudiodental.com"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="https://altikastudiodental.com/wp-content/uploads/2025/06/Recurso-18@300x.png"
+      imagesrcset="https://altikastudiodental.com/wp-content/uploads/2025/06/Recurso-18@300x.png 1x"
+      imagesizes="48px"
+    />
+
+    <!-- (Opcional) PWA: habilita cuando tengas manifest -->
+    <!-- <link rel="manifest" href="/manifest.webmanifest" /> -->
+
+    <!-- Canonical (ajústalo si despliegas bajo otro dominio/ruta) -->
+    <link rel="canonical" href="https://altikastudiodental.com/" />
   </head>
-  <body>
+  <body class="bg-gray-50 text-black">
+    <noscript>
+      Necesitas habilitar JavaScript para usar el panel de Altika Studio Dental.
+    </noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
