@@ -1,6 +1,6 @@
 import { Cita, Cumpleanos } from '../types';
 
-const API_BASE = 'https://intelety-n8n.uryun4.easypanel.host/webhook/altika';
+const API_BASE = 'https://intelety-n8n.m9d0ud.easypanel.host/webhook/altika';
 
 // Token management
 let authToken: string | null = null;
